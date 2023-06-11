@@ -2,20 +2,39 @@ main {
     min-height: 80vh;
 }
 
+.hero {
+    background-image: url("../public/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.hero h1 {
+    color: #ffffff;
+    text-shadow: 1px 1px #000;
+}
+
+.hero p {
+    color: #ffffff;
+    text-shadow: 1px 1px #000;
+}
+
 .text-link {
-    color:rgba(0, 0, 0, 0.664);
+    color: rgba(0, 0, 0, 0.664);
 }
 
 .text-link:hover {
-    color:rgba(0, 0, 0, 0.955);
+    color: rgba(0, 0, 0, 0.955);
 }
 
 .icons a {
     font-size: 35px;
-    color:rgba(0, 0, 0, 0.664);
+    color: rgba(0, 0, 0, 0.664);
     margin-left: 1rem;
 }
 
 .icons a:hover {
-    color:rgba(0, 0, 0, 0.955);
+    color: rgba(0, 0, 0, 0.955);
 }
