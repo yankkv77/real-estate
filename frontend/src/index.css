@@ -38,3 +38,27 @@ main {
 .icons a:hover {
     color: rgba(0, 0, 0, 0.955);
 }
+
+.card-img {
+    height: 28vh;
+    object-fit: cover;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card-title {
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.card-sub {
+    color: #000000ed;
+    font-size: 0.9rem;
+}
+
+.card-text {
+    color: #000000;
+    font-size: 0.9rem;
+}

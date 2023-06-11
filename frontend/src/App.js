@@ -3,16 +3,16 @@ import { Container } from "react-bootstrap";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
+import HomeScreen from "./screens/HomeScreen";
 
 function App() {
     return (
         <div>
             <Header />
             <main>
-                <HeroSection/>
+                <HeroSection />
                 <Container>
-                    <h1>Real Estate</h1>
-                    
+                    <HomeScreen />
                 </Container>
             </main>
             <Footer />
