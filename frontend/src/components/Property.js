@@ -1,9 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Property({ property }) {
     return (
-        <a className="card-link" href={`/property/${property._id}`}>
+        <Link to={`/property/${property._id}`} className="card-link">
             <Card>
                 <Card.Img
                     className="card-img"
@@ -24,7 +25,7 @@ function Property({ property }) {
                     </Card.Text>
                 </Card.Body>
             </Card>
-        </a>
+        </Link>
     );
 }
 

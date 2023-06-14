@@ -62,3 +62,31 @@ main {
     color: #000000;
     font-size: 0.9rem;
 }
+
+@media only screen and(min-height: 1024px) {
+    .property-img {
+        height: 30rem;
+    }
+}
+
+.for-sale {
+    color: #01bf71;
+}
+
+.sale-check {
+    font-size: 1.2rem;
+}
+
+.house-info {
+    box-shadow: none;
+}
+
+.address-link {
+    text-decoration: none;
+    color: rgba(26, 75, 173, 0.816);
+}
+
+.address-link:hover {
+    color: rgb(2, 41, 119);
+    text-decoration: underline;
+}
