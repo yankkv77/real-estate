@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HeroSection from "./components/HeroSection";
 import HomeScreen from "./screens/HomeScreen";
+import PropertyScreen from "./screens/PropertyScreen";
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             <main>
                 <Route path="/" component={HomeScreen} exact />
                 <Container>
-
+                    <Route path="/property/:id" component={PropertyScreen} />
                 </Container>
             </main>
             <Footer />

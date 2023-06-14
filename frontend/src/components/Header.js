@@ -1,37 +1,50 @@
 import React from "react";
 import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
     return (
         <Navbar expand="md">
             <Container>
-                <Navbar.Brand href="/">RealEstate</Navbar.Brand>
+                <LinkContainer to="/">
+                    <Navbar.Brand>RealEstate</Navbar.Brand>
+                </LinkContainer>
                 <Navbar.Toggle />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#buy">Buy</Nav.Link>
-                        <Nav.Link href="#sell">Sell</Nav.Link>
-                        <Nav.Link href="#realtors">
-                            Find Realtors
-                        </Nav.Link>
-                        <Nav.Link href="#services">Services</Nav.Link>
+                        <LinkContainer to="/buy">
+                            <Nav.Link>Buy</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/sell">
+                            <Nav.Link>Sell</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="realtors">
+                            <Nav.Link>Find Realtors</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/services">
+                            <Nav.Link href="#services">Services</Nav.Link>
+                        </LinkContainer>
                         <NavDropdown title="Account" id="basic-navbar-nav">
-                            <NavDropdown.Item href="#page">
-                                My Page
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#my-home">
-                                My Home
-                            </NavDropdown.Item>
+                            <LinkContainer to="my-page">
+                                <NavDropdown.Item>My Page</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to="my-home">
+                                <NavDropdown.Item>My Home</NavDropdown.Item>
+                            </LinkContainer>
                         </NavDropdown>
                     </Nav>
-                    <Button
-                        className="me-3"
-                        variant="outline-success"
-                        size="md"
-                    >
-                        Log In
-                    </Button>
-                    <Button size="md">Sign Up</Button>{" "}
+                    <LinkContainer to="/login">
+                        <Button
+                            className="me-3"
+                            variant="outline-success"
+                            size="md"
+                        >
+                            Log In
+                        </Button>
+                    </LinkContainer>
+                    <LinkContainer to="sign-up">
+                        <Button size="md">Sign Up</Button>
+                    </LinkContainer>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
