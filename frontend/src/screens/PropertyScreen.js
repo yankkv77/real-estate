@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import {
     Row,
@@ -8,11 +9,20 @@ import {
     Accordion,
     ListGroupItem,
 } from "react-bootstrap";
-import properties from "../properties";
-import AccordionItem from "react-bootstrap/esm/AccordionItem";
 
 function PropertyScreen({ match }) {
-    const property = properties.find((p) => p._id == match.params.id);
+    const [property, setProperty] = useState([]);
+
+    useEffect(() => {
+        async function fetchProperty() {
+            const { data } = await axios.get(
+                `/api/properties/${match.params.id}`
+            );
+            setProperty(data);
+        }
+        fetchProperty();
+    });
+
     return (
         <div className="pt-3">
             <Row>
