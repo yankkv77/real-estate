@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="pt-5">
             <Container>
-                <Row>
+                <Row >
                     <Col md={6}>
                         <h5>RealEstate</h5>
                         <p>
@@ -15,7 +15,7 @@ function Footer() {
                             convenient property buying and selling
                         </p>
                     </Col>
-                    <Col md={3}>
+                    <Col md={3} className="text-center">
                         <div>
                             <a
                                 href="https://goo.gl/maps/Jy2meESM4pJehZSo7"
@@ -46,7 +46,7 @@ function Footer() {
 
                         <div>
                             <a
-                                href="mailto:g-shop@email.com"
+                                href="mailto:realestate@email.com"
                                 target="_blank"
                                 className="text-link"
                             >
@@ -54,8 +54,8 @@ function Footer() {
                             </a>
                         </div>
                     </Col>
-                    <Col md={3}>
-                        <div className="icons text-center p-2">
+                    <Col md={3} className="text-center">
+                        <div className="icons p-2">
                             <a
                                 href="https://www.instagram.com/"
                                 target="_blank"
