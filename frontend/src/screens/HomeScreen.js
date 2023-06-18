@@ -27,9 +27,9 @@ function HomeScreen() {
                         <Col
                             className="py-3"
                             key={property._id}
-                            sm={1}
+                            sm={12}
                             md={6}
-                            lg={5}
+                            lg={4}
                             xl={3}
                         >
                             <Property property={property} />

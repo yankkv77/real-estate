@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Property({ property }) {
     return (
-        <Link to={`/property/${property._id}`} className="card-link">
+        <Link to={`/properties/${property._id}`} className="card-link">
             <Card>
                 <Card.Img
                     className="card-img"

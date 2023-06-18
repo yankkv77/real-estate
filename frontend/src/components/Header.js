@@ -18,7 +18,7 @@ function Header() {
                         <LinkContainer to="/sell">
                             <Nav.Link>Sell</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="realtors">
+                        <LinkContainer to="/agents">
                             <Nav.Link>Find Realtors</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/services">

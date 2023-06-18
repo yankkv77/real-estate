@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import {
     Row,
     Col,
@@ -39,7 +38,7 @@ function PropertyScreen({ match }) {
                     <h6>
                         {property.state}, {property.city}
                     </h6>
-                    <p>{property.description}</p>
+                    <p className="prop-description">{property.description}</p>
                 </Col>
             </Row>
             <Row>
