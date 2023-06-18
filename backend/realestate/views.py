@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .properties import properties
+from .agents import agents
 
 # Create your views here.
 
@@ -12,6 +13,7 @@ from .properties import properties
 def get_routes(request):
     routes = [
         '/api/propeties/',
+
         '/api/propeties/create',
         '/api/propeties/upload',
         '/api/propeties/top',
@@ -36,3 +38,18 @@ def get_property(request, pk):
             break
 
     return Response(property)
+
+
+@api_view(['GET'])
+def get_agents(request):
+    return Response(agents)
+
+
+@api_view(['GET'])
+def get_agent(request, pk):
+    agent = None
+    for i in agents:
+        if i['_id'] == pk:
+            agent = i
+            break
+    return Response(agent)

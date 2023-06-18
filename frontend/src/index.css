@@ -1,5 +1,5 @@
 main {
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 .hero {
@@ -29,8 +29,6 @@ main {
 .text-link:hover {
     color: rgba(0, 0, 0, 0.955);
 }
-
-
 
 .icons a {
     font-size: 35px;
@@ -91,4 +89,25 @@ main {
 .address-link:hover {
     color: rgb(2, 41, 119);
     text-decoration: underline;
+}
+
+.prop-description {
+    text-align: justify;
+}
+
+
+
+.profile-icon i {
+    margin: 0.2rem;
+    font-size: 1.8rem;
+    color: rgb(0,32,74);
+    transition: transform 0.3s ease;
+}
+
+.profile-icon i:hover {
+    transform: scale(1.2);
+}
+
+.bio-text {
+    text-align: justify;
 }

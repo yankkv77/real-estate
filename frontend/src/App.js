@@ -1,25 +1,24 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import PropertyScreen from "./screens/PropertyScreen";
+import AgentsScreen from "./screens/AgentsScreen";
+import AgentScreen from "./screens/AgentScreen";
 
 function App() {
     return (
         <Router>
             <Header />
             <main>
-                <Switch>
-                    <Route path="/" component={HomeScreen} exact />
-                    <Container>
-                        <Route
-                            path="/property/:id"
-                            component={PropertyScreen}
-                        />
-                    </Container>
-                </Switch>
+                <Route path="/" component={HomeScreen} exact />
+                <Container>
+                    <Route path="/properties/:id" component={PropertyScreen} />
+                    <Route path="/agents" component={AgentsScreen} />
+                    <Route path="/agent/:id" component={AgentScreen} />
+                </Container>
             </main>
             <Footer />
         </Router>
