@@ -9,7 +9,7 @@ function Property({ property }) {
                 <Card.Img
                     className="card-img"
                     variant="top"
-                    src={property.image}
+                    src={property.images[0]}
                 />
                 <Card.Body>
                     <Card.Title as="div" className="card-title">

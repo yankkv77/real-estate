@@ -6,11 +6,13 @@ import {
     Image,
     ListGroup,
     Accordion,
+    Carousel,
     ListGroupItem,
 } from "react-bootstrap";
 
 function PropertyScreen({ match }) {
     const [property, setProperty] = useState([]);
+    const [propertyImages, setPropertyImages] = useState([]);
 
     useEffect(() => {
         async function fetchProperty() {
@@ -18,20 +20,34 @@ function PropertyScreen({ match }) {
                 `/api/properties/${match.params.id}`
             );
             setProperty(data);
+            const { data: images } = await axios.get(
+                `/api/properties/${match.params.id}/images/`
+            );
+            setPropertyImages(images);
         }
         fetchProperty();
-    });
+    }, [match.params.id]);
 
     return (
         <div className="pt-3">
             <Row>
                 <Col className="pt-2" md={6}>
-                    <Image
-                        className="property-img"
-                        src={property.image}
-                        alt={property.address}
-                        fluid
-                    />
+                    {/* Check if we got any property images available*/}
+                    {propertyImages.length > 0 && (
+                        <Carousel interval={null}>
+                            {/* If we got images, we iterate it and create new CarouselItem for each image */}
+                            {propertyImages.map((image) => (
+                                <Carousel.Item key={image.id}>
+                                    <Image
+                                        className="property-img"
+                                        src={image.image}
+                                        alt={property.address}
+                                        fluid
+                                    />
+                                </Carousel.Item>
+                            ))}
+                        </Carousel>
+                    )}
                 </Col>
                 <Col className="pt-2" md={6}>
                     <h4>{property.address}</h4>
