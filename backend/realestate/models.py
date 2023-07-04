@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-
 class Realtor(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
     name = models.CharField(max_length=150)
@@ -44,6 +43,7 @@ class Property(models.Model):
 
     def __str__(self):
         return str(self.address)
+
 
 class PropertyImage(models.Model):
     home = models.ForeignKey(
