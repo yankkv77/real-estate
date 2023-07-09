@@ -1,11 +1,14 @@
 import { legacy_createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { propertyListReducer } from "./reducers/propertyReducer";
 
-// Combine reducers (currently empty)
-const reducer = combineReducers({});
+// Added a value to the state
+const reducer = combineReducers({
+    propertyList: propertyListReducer,
+});
 
-// Set initial state (currently empty )
+// Triggered reducer we set properties to the initial state
 const initialState = {};
 
 // Define middleware (currently only using thunk)

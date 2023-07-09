@@ -1,41 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { listProperties } from "../actions/propertyActions";
 import Property from "../components/Property";
 import HeroSection from "../components/HeroSection";
-import axios from "axios";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 function HomeScreen() {
-    // #1 set state - properties, setProperties - method
-    const [properties, setProperties] = useState([]);
+    const dispatch = useDispatch();
+    // Pulling part of a state
+    const propertyList = useSelector((state) => state.propertyList);
+    const { error, loading, properties } = propertyList;
 
-    // #2 useEffect gets triggered every time, when the component loads or when a state gets updated
+    // useEffect is used to dispatch the listProperties action
     useEffect(() => {
-        async function fetchProperties() {
-            const { data } = await axios.get("/api/properties");
-            setProperties(data);
-        }
-        fetchProperties();
-    }, []);
+        dispatch(listProperties());
+    }, [dispatch]);
 
     return (
         <div>
             <HeroSection />
             <Container className="py-3">
                 <h2>Popular Properties</h2>
-                <Row>
-                    {properties.map((property) => (
-                        <Col
-                            className="py-3"
-                            key={property._id}
-                            sm={12}
-                            md={6}
-                            lg={4}
-                            xl={3}
-                        >
-                            <Property property={property} />
-                        </Col>
-                    ))}
-                </Row>
+                {loading ? (
+                    <Loader />
+                ) : error ? (
+                    <Message variant='danger'>{error}</Message>
+                ) : (
+                    <Row>
+                        {properties.map((property) => (
+                            <Col
+                                className="py-3"
+                                key={property._id}
+                                sm={12}
+                                md={6}
+                                lg={4}
+                                xl={3}
+                            >
+                                <Property property={property} />
+                            </Col>
+                        ))}
+                    </Row>
+                )}
             </Container>
         </div>
     );
