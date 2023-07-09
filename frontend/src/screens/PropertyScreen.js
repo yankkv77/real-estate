@@ -37,7 +37,7 @@ function PropertyScreen({ match }) {
                         <Carousel interval={null}>
                             {/* If we got images, we iterate it and create new CarouselItem for each image */}
                             {propertyImages.map((image) => (
-                                <Carousel.Item key={image.id}>
+                                <Carousel.Item key={image.id}   >
                                     <Image
                                         className="property-img"
                                         src={image.image}
