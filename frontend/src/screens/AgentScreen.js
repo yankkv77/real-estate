@@ -1,18 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Row, Col, Image, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-
+import { Link } from "react-router-dom";
+import Property from "../components/Property";
 function AgentScreen({ match }) {
     const [agent, setAgent] = useState([]);
+    const [properties, setProperties] = useState([]);
 
     useEffect(() => {
         async function fetchAgent() {
             const { data } = await axios.get(`/api/agents/${match.params.id}`);
             setAgent(data);
+
+            const { data: propertiesData } = await axios.get(
+                `/api/properties/?realtor=${match.params.id}`
+            );
+            setProperties(propertiesData);
         }
         fetchAgent();
-    });
+    }, [match.params.id]);
 
     return (
         <div className="pt-3">
@@ -39,7 +45,21 @@ function AgentScreen({ match }) {
                 <Col md={8}>
                     <p className="bio-text">{agent.bio}</p>
                     <hr />
-                    <h5>Offers listeds by {agent.name}:</h5>
+                    <h5>Offers listed by {agent.name}:</h5>
+                    <Row>
+                        {properties.map((property) => (
+                            <Col
+                                className="py-3"
+                                key={property._id}
+                                sm={12}
+                                md={6}
+                                lg={6}
+                                xl={4}
+                            >
+                                <Property property={property} />
+                            </Col>
+                        ))}
+                    </Row>
                 </Col>
             </Row>
         </div>
