@@ -31,9 +31,9 @@ class Property(models.Model):
     bedrooms = models.PositiveIntegerField()
     bathrooms = models.PositiveIntegerField()
     garage = models.CharField(max_length=10, choices=(
-        ('none', 'No Garage'),
-        ('attached', 'Attached Garage'),
-        ('dettached', 'Dettached Garage'),
+        ('None', 'No Garage'),
+        ('Attached', 'Attached Garage'),
+        ('Dettached', 'Dettached Garage'),
     ), default=None)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     year_build = models.PositiveIntegerField()
