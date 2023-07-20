@@ -9,10 +9,12 @@ import {
     Carousel,
     ListGroupItem,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function PropertyScreen({ match }) {
     const [property, setProperty] = useState([]);
     const [propertyImages, setPropertyImages] = useState([]);
+    const [agent, setAgent] = useState({});
 
     useEffect(() => {
         async function fetchProperty() {
@@ -24,6 +26,10 @@ function PropertyScreen({ match }) {
                 `/api/properties/${match.params.id}/images/`
             );
             setPropertyImages(images);
+            const { data: agentData } = await axios.get(
+                `/api/agents/${data.realtor}`
+            );
+            setAgent(agentData);
         }
         fetchProperty();
     }, [match.params.id]);
@@ -37,7 +43,7 @@ function PropertyScreen({ match }) {
                         <Carousel interval={null}>
                             {/* If we got images, we iterate it and create new CarouselItem for each image */}
                             {propertyImages.map((image) => (
-                                <Carousel.Item key={image.id}   >
+                                <Carousel.Item key={image.id}>
                                     <Image
                                         className="property-img"
                                         src={image.image}
@@ -56,9 +62,10 @@ function PropertyScreen({ match }) {
                     </h6>
                     <p className="prop-description">{property.description}</p>
                 </Col>
+
             </Row>
-            <Row>
-                <Col className="pt-3" md={6}>
+            <Row className="pt-3">
+                <Col  md={6}>
                     <h4 className="for-sale">
                         For Sale <i className="fa-solid fa-check sale-check" />
                     </h4>
@@ -93,7 +100,7 @@ function PropertyScreen({ match }) {
                                     </ListGroup.Item>
                                     <ListGroup.Item>
                                         <i className="fa-solid fa-warehouse" />{" "}
-                                        {property.garage} cars
+                                        {property.garage} Cars garage
                                     </ListGroup.Item>
                                 </ListGroup>
                             </Accordion.Body>
@@ -101,7 +108,9 @@ function PropertyScreen({ match }) {
                     </Accordion>
                 </Col>
 
-                <Col md={6}></Col>
+                <Col md={6}>
+                    <h5>Offer by <Link to={`/agent/${agent._id}`}>{agent.name}</Link> </h5>
+                </Col>
             </Row>
         </div>
     );
