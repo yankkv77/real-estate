@@ -15,19 +15,20 @@ function Header() {
                         <LinkContainer to="/buy">
                             <Nav.Link>Buy</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="/sell">
-                            <Nav.Link>Sell</Nav.Link>
-                        </LinkContainer>
                         <LinkContainer to="/agents">
                             <Nav.Link>Find Realtors</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/services">
                             <Nav.Link href="#services">Services</Nav.Link>
                         </LinkContainer>
+                        <LinkContainer to="/saved">
+                            <Nav.Link>Saved</Nav.Link>
+                        </LinkContainer>
                         <NavDropdown title="Account" id="basic-navbar-nav">
                             <LinkContainer to="my-page">
                                 <NavDropdown.Item>My Page</NavDropdown.Item>
                             </LinkContainer>
+
                             <LinkContainer to="my-home">
                                 <NavDropdown.Item>My Home</NavDropdown.Item>
                             </LinkContainer>
