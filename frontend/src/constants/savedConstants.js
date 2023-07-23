@@ -1,0 +1,1 @@
+export const ADD_TO_SAVED = 'SAVED_ADD_PROPERTY';
