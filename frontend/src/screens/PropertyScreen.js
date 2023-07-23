@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function PropertyScreen({ match }) {
+function PropertyScreen({ match, history }) {
     const [property, setProperty] = useState([]);
     const [propertyImages, setPropertyImages] = useState([]);
     const [agent, setAgent] = useState({});
@@ -33,6 +33,10 @@ function PropertyScreen({ match }) {
         }
         fetchProperty();
     }, [match.params.id]);
+
+    const addToFavHandler = () => {
+        history.push(`/saved/${match.params.id}`)
+    };
 
     return (
         <div className="pt-3">
@@ -62,13 +66,25 @@ function PropertyScreen({ match }) {
                     </h6>
                     <p className="prop-description">{property.description}</p>
                 </Col>
-
             </Row>
             <Row className="pt-3">
-                <Col  md={6}>
-                    <h4 className="for-sale">
-                        For Sale <i className="fa-solid fa-check sale-check" />
-                    </h4>
+                <Col md={6}>
+                    <Row>
+                        <Col md={10} xs={10}>
+                            <h4 className="for-sale">
+                                For Sale{" "}
+                                <i className="fa-solid fa-check sale-check" />
+                            </h4>
+                        </Col>
+                        <Col md={2} xs={2}>
+                            <i
+                                onClick={addToFavHandler}
+                                className="fa-regular fa-heart add-to-fav"
+                                type="button"
+                            />
+                        </Col>
+                    </Row>
+
                     <h3>${property.price}</h3>
                     <Accordion defaultActiveKey={0}>
                         <Accordion.Item eventKey="0" variant="primary">
@@ -109,7 +125,10 @@ function PropertyScreen({ match }) {
                 </Col>
 
                 <Col md={6}>
-                    <h5>Offer by <Link to={`/agent/${agent._id}`}>{agent.name}</Link> </h5>
+                    <h5>
+                        Offer by{" "}
+                        <Link to={`/agent/${agent._id}`}>{agent.name}</Link>{" "}
+                    </h5>
                 </Col>
             </Row>
         </div>

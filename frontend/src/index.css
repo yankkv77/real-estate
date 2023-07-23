@@ -111,3 +111,20 @@ main {
 .bio-text {
     text-align: justify;
 }
+
+.add-to-fav {
+    color: #000000;
+    width: 1.8rem;
+    height: 1.8rem;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.add-to-fav:hover {
+    transform: scale(1.2);
+    color: #c23535cf;
+}
+
